@@ -71,6 +71,7 @@ const getRandomInt = (min, max) => {
 
 // перемешивание массива
 const shuffleFruits = () => {
+  let cloneFruits = [ ...fruits ];
   let result = [];
 
   // ATTENTION: сейчас при клике вы запустите бесконечный цикл и браузер зависнет
@@ -85,6 +86,10 @@ const shuffleFruits = () => {
     let randIndex = getRandomInt(0, fruits.length - 1);
     let randElem = randIndex == 0 ? fruits.splice(0, 1) : fruits.splice(randIndex, 1);
     result.push(randElem[0]);
+  }
+
+  if (JSON.stringify(cloneFruits) == JSON.stringify(result)) {
+    alert('Список не перемешался. Попробуйте еще раз.');
   }
 
   fruits = result;
