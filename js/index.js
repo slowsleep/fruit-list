@@ -11,6 +11,11 @@ const colorInput = document.querySelector('.color__input'); // поле с на�
 const weightInput = document.querySelector('.weight__input'); // поле с весом
 const addActionButton = document.querySelector('.add__action__btn'); // кнопка добавления
 
+
+const minWeightInput = document.querySelector('.minweight__input'); // поле с минимальным весом
+const maxWeightInput = document.querySelector('.maxweight__input'); // поле с максимальным весом
+
+
 // список фруктов в JSON формате
 let fruitsJSON = `[
   {"kind": "Мангустин", "color": "фиолетовый", "weight": 13},
@@ -104,9 +109,16 @@ shuffleButton.addEventListener('click', () => {
 
 // фильтрация массива
 const filterFruits = () => {
-  fruits.filter((item) => {
-    // TODO: допишите функцию
+  // 0 - минимальный вес; 1000 - максимальный вес
+  let minVal = minWeightInput.value ? Number(minWeightInput.value) : 0;
+  let maxVal = maxWeightInput.value ? Number(maxWeightInput.value) : 1000;
+  console.log(minVal, maxVal);
+
+  let newFruits = fruits.filter((item) => {
+    return item.weight >= minVal && item.weight <= maxVal
   });
+
+  fruits = newFruits;
 };
 
 filterButton.addEventListener('click', () => {

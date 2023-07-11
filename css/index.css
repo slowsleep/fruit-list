@@ -137,6 +137,10 @@ main {
   padding: 10px;
 }
 
-.shuffle__btn {
+.shuffle__btn, .filter__btn {
   cursor: pointer;
+}
+
+.shuffle__btn:hover, .filter__btn:hover {
+  background-color: rgb(38, 86, 129);
 }
