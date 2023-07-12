@@ -239,13 +239,13 @@ addActionButton.addEventListener('click', () => {
   let weightVal = weightInput.value;
 
   if (!kindVal) {
-    alert('Заполните значение kind');
+    alert('Заполните поле kind');
     return;
   } else if (!colorVal) {
-    alert('Заполните значение color');
+    alert('Заполните поле color');
     return;
   } else if (!weightVal) {
-    alert('Заполните значение weight');
+    alert('Заполните поле weight');
     return;
   }
 
