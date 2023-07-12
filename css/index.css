@@ -137,10 +137,10 @@ main {
   padding: 10px;
 }
 
-.shuffle__btn, .filter__btn {
+.shuffle__btn, .filter__btn, .sort__action__btn, .sort__change__btn {
   cursor: pointer;
 }
 
-.shuffle__btn:hover, .filter__btn:hover {
+.shuffle__btn:hover, .filter__btn:hover, .sort__action__btn:hover, .sort__change__btn:hover {
   background-color: rgb(38, 86, 129);
 }
