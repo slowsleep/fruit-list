@@ -98,7 +98,6 @@ const filterFruits = () => {
   // 0 - минимальный вес; 1000 - максимальный вес
   let minVal = minWeightInput.value ? Number(minWeightInput.value) : 0;
   let maxVal = maxWeightInput.value ? Number(maxWeightInput.value) : 1000;
-  console.log(minVal, maxVal);
 
   let newFruits = fruits.filter((item) => {
     return item.weight >= minVal && item.weight <= maxVal
@@ -126,13 +125,13 @@ const comparationColor = (a, b) => {
 };
 
 
+// Функции для быстрой сортировки
 // функция обмена элементов
 function swap(items, firstIndex, secondIndex){
   const temp = items[firstIndex];
   items[firstIndex] = items[secondIndex];
   items[secondIndex] = temp;
 }
-
 // функция разделитель
 function partition(items, left, right, comparation) {
   let pivot = items[Math.floor((right + left) / 2)]
@@ -153,7 +152,6 @@ function partition(items, left, right, comparation) {
   }
   return i;
 }
-
 
 const sortAPI = {
   bubbleSort(arr, comparation) {
@@ -222,7 +220,29 @@ sortActionButton.addEventListener('click', () => {
 /*** ДОБАВИТЬ ФРУКТ ***/
 
 addActionButton.addEventListener('click', () => {
-  // TODO: создание и добавление нового фрукта в массив fruits
-  // необходимые значения берем из kindInput, colorInput, weightInput
+
+  let kindVal = kindInput.value;
+  let colorVal = colorInput.value;
+  let weightVal = weightInput.value;
+
+  if (!kindVal) {
+    alert('Заполните значение kind');
+    return;
+  } else if (!colorVal) {
+    alert('Заполните значение color');
+    return;
+  } else if (!weightVal) {
+    alert('Заполните значение weight');
+    return;
+  }
+
+  let newFruit = {
+    kind: kindInput.value,
+    color: colorInput.value,
+    weight: weightInput.value
+  };
+
+  fruits.push(newFruit);
+
   display();
 });
