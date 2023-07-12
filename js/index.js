@@ -43,14 +43,27 @@ const display = () => {
     let fruit = document.createElement('li');
     fruit.className = 'fruit__item ';
     fruit.className += 'fruit_' + colors.get(fruits[i].color);
-    fruit.innerHTML = `
-      <div class="fruit__info">
-        <div>index: ${i}</div>
-        <div>kind: ${fruits[i].kind}</div>
-        <div>color: ${fruits[i].color}</div>
-        <div>weight (кг): ${fruits[i].weight}</div>
-      </div>
-    `;
+
+    let divFruitInfo = document.createElement('div');
+    divFruitInfo.className = 'fruit__info';
+
+    let fruitValues = [
+      `index: ${i}`,
+      `kind: ${fruits[i].kind}`,
+      `color: ${fruits[i].color}`,
+      `weight (кг): ${fruits[i].weight}`
+    ];
+
+    for (let val of fruitValues) {
+      let newDiv = document.createElement('div');
+      let divText = document.createTextNode(val);
+      newDiv.appendChild(divText);
+      divFruitInfo.appendChild(newDiv);
+    }
+
+    fruit.appendChild(divFruitInfo);
+
+
     fruitsList.appendChild(fruit);
   }
 };
